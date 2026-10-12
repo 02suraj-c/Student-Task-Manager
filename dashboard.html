@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Task Manager · Dashboard</title>
+ 
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="layout">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="logo">🌿</span><h2>Student<br />Task Manager</h2></div>
+    <button class="nav-btn active" data-section="overview">🏠 Overview</button>
+    <button class="nav-btn" data-section="attendance">📅 Attendance</button>
+    <button class="nav-btn" data-section="tasks">✅ Tasks</button>
+    <button class="nav-btn" data-section="schedule">⏰ Daily Schedule</button>
+    <button class="nav-btn" data-section="subjects">📚 Subjects</button>
+    <div class="spacer"></div>
+    <div class="user-box"><strong id="user-name">Student</strong><span id="user-email"></span></div>
+    <button class="btn ghost" id="logout-btn">Log out</button>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+
+    <div class="topbar">
+      <div>
+        <h1 id="greeting">Hello 👋</h1>
+        <p>Here's what's on your plate today.</p>
+      </div>
+      <div class="date-chip" id="date-chip"></div>
+    </div>
+
+    <!-- ===== Overview ===== -->
+    <section class="section active" id="overview">
+      <div class="quote" id="quote"></div>
+      <div class="grid stats" id="stats"></div>
+      <div class="grid two-col">
+        <div class="card"><h3>⏰ Today's classes</h3><div id="ov-today"></div></div>
+        <div class="card"><h3>✅ Upcoming tasks</h3><div id="ov-tasks"></div></div>
+      </div>
+      <div class="card" style="margin-top:1.2rem"><h3>📅 Attendance at a glance</h3><div id="ov-att"></div></div>
+    </section>
+
+    <!-- ===== Attendance ===== -->
+    <section class="section" id="attendance">
+      <div class="toolbar"><div class="sub" style="color:var(--muted)">Mark today's classes. Target: 75% or above.</div></div>
+      <div class="grid two-col" id="att-grid"></div>
+    </section>
+
+    <!-- ===== Tasks ===== -->
+    <section class="section" id="tasks">
+      <div class="toolbar">
+        <div class="filters" id="task-filters">
+          <button class="active" data-f="pending">Pending</button>
+          <button data-f="done">Completed</button>
+          <button data-f="all">All</button>
+        </div>
+        <button class="btn" id="add-task-btn">＋ Add task</button>
+      </div>
+      <div class="card" id="task-list"></div>
+    </section>
+
+    <!-- ===== Schedule ===== -->
+    <section class="section" id="schedule">
+      <div class="toolbar">
+        <div class="day-tabs" id="day-tabs"></div>
+        <button class="btn" id="add-class-btn">＋ Add class</button>
+      </div>
+      <div class="card" id="schedule-list"></div>
+    </section>
+
+    <!-- ===== Subjects ===== -->
+    <section class="section" id="subjects">
+      <div class="toolbar">
+        <div style="color:var(--muted)">Everything you're studying this term.</div>
+        <button class="btn" id="add-subject-btn">＋ Add subject</button>
+      </div>
+      <div class="grid stats" id="subject-grid" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))"></div>
+    </section>
+  </main>
+</div>
+
+<!-- ============ MODALS ============ -->
+<dialog id="task-modal">
+  <form method="dialog" id="task-form">
+    <h3>New task</h3>
+    <div class="field"><label>Title</label><input id="t-title" required placeholder="e.g. Finish physics assignment" /></div>
+    <div class="field"><label>Subject</label><select id="t-subject"></select></div>
+    <div class="field"><label>Due date</label><input id="t-due" type="date" required /></div>
+    <div class="field"><label>Priority</label>
+      <select id="t-priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select>
+    </div>
+    <div class="modal-actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn" type="submit">Save</button></div>
+  </form>
+</dialog>
+
+<dialog id="class-modal">
+  <form method="dialog" id="class-form">
+    <h3>New class</h3>
+    <div class="field"><label>Subject</label><select id="c-subject"></select></div>
+    <div class="field"><label>Day</label><select id="c-day"></select></div>
+    <div class="field"><label>Start time</label><input id="c-start" type="time" required value="09:00" /></div>
+    <div class="field"><label>End time</label><input id="c-end" type="time" required value="10:00" /></div>
+    <div class="field"><label>Room / note</label><input id="c-room" placeholder="e.g. Room 204" /></div>
+    <div class="modal-actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn" type="submit">Save</button></div>
+  </form>
+</dialog>
+
+<dialog id="subject-modal">
+  <form method="dialog" id="subject-form">
+    <h3>New subject</h3>
+    <div class="field"><label>Name</label><input id="s-name" required placeholder="e.g. Biology" /></div>
+    <div class="field"><label>Teacher</label><input id="s-teacher" placeholder="e.g. Ms. Sharma" /></div>
+    <div class="field"><label>Emoji</label><input id="s-emoji" maxlength="2" value="📖" /></div>
+    <div class="modal-actions"><button type="button" class="btn ghost" data-close>Cancel</button><button class="btn" type="submit">Save</button></div>
+  </form>
+</dialog>
+
+<script src="css/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Task Manager · Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="login-page">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <main class="login-card">
+    <div class="brand">
+      <div class="logo">🌿</div>
+      <h1>Student Task Manager</h1>
+      <p>Breathe in. Plan your day. You've got this.</p>
+    </div>
+
+    <div class="tabs">
+      <button id="tab-login" class="active" type="button">Log in</button>
+      <button id="tab-signup" type="button">Sign up</button>
+    </div>
+
+    <form id="login-form" novalidate>
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" placeholder="you@example.com" autocomplete="username" />
+      </div>
+      <div class="field">
+        <label for="login-pass">Password</label>
+        <input id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password" />
+      </div>
+      <button class="btn" type="submit">Log in</button>
+    </form>
+
+    <form id="signup-form" novalidate hidden>
+      <div class="field">
+        <label for="su-name">Full name</label>
+        <input id="su-name" type="text" placeholder="Your name" autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="su-email">Email</label>
+        <input id="su-email" type="email" placeholder="you@example.com" autocomplete="username" />
+      </div>
+      <div class="field">
+        <label for="su-pass">Password (min 6 characters)</label>
+        <input id="su-pass" type="password" placeholder="••••••••" autocomplete="new-password" />
+      </div>
+      <button class="btn" type="submit">Create account</button>
+    </form>
+
+    <div id="msg" class="msg" role="status"></div>
+    <div class="hint">Demo account — <strong>student@demo.com</strong> / <strong>student123</strong></div>
+  </main>
+  <script src="css/js/auth.js"></script>
+</body>
+</html>
