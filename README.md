@@ -3,7 +3,7 @@
 
 A calm, easy-to-use web app that helps students plan their day, track attendance, manage tasks, and organise their subjects, all in one place. Built with plain HTML, CSS and JavaScript, with no frameworks and no backend.
 
-**Live demo:** [add your Vercel link here](https://your-project.vercel.app)
+**Live demo:** https://student-task-manager-self.vercel.app
 
 ---
 
